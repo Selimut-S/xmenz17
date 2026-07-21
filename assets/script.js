@@ -30,7 +30,14 @@ const clubs = {
     img: "assets/img/empiregt.png",
     name: "Empire GT",
     status: "open",
-    whatsapp: "6285798047422",
+    joinType: "whatsapp",
+    joinLink:
+      "https://wa.me/6285798047422?text=" +
+      encodeURIComponent(`Halo Admin Empire GT 🤗
+Saya ingin bergabung ke Club Empire GT.
+Saya mendapatkan informasi Open Member dari TikTok XMenz.
+Mohon informasi lebih lanjut mengenai proses pendaftaran.
+Terima kasih. 🙏`),
     discord: "https://discord.gg/NSaSaUVBq",
     rules: [
       "Change Name : GT1“(name)",
@@ -38,18 +45,14 @@ const clubs = {
       "Aktif",
       "Wajib Menjalankan Misi Klub",
     ],
-    message: `Halo Admin Empire GT 🤗
-Saya ingin bergabung ke Club Empire GT.
-Saya mendapatkan informasi Open Member dari TikTok XMenz.
-Mohon informasi lebih lanjut mengenai proses pendaftaran.
-Terima kasih. 🙏`,
   },
 
   irmc: {
     img: "assets/img/irmc.png",
     name: "IRMC",
     status: "open",
-    whatsapp: "6281324493740",
+    joinType: "website",
+    joinLink: "https://irmc.club/daftar",
     discord: "https://discord.gg/dfw73c689",
     rules: ["Change Name : IRMC〆(Name)", "NO Toxic", "NO 18++", "NO SARA"],
     message: `Halo Admin IRMC 🤗
@@ -686,13 +689,10 @@ window.switchGearTab = function (tabName, event) {
 // logika club
 window.openClubPopup = function (clubName) {
   const club = clubs[clubName];
-
   if (!club) return;
 
   document.getElementById("club-logo").src = club.img;
-
   document.getElementById("club-title").textContent = club.name;
-
   document.getElementById("club-status").innerHTML =
     club.status === "open"
       ? `<span class="badge-tag badge-live">🟢 OPEN MEMBER</span>`
@@ -702,25 +702,37 @@ window.openClubPopup = function (clubName) {
     .map((rule) => `<li>✅ ${rule}</li>`)
     .join("");
 
-  const btn = document.getElementById("club-wa-btn");
+  const btn = document.getElementById("club-join-btn");
 
   if (club.status === "open") {
-    btn.style.display = "";
+    btn.style.display = "flex";
+
+    // Tentukan ikon dan teks berdasarkan tipe
+    let iconClass = "fa-solid fa-gamepad"; // Default ikon gaming
+    let btnText = "Daftar Club";
+
+    if (club.joinType === "whatsapp") {
+      iconClass = "fa-brands fa-whatsapp";
+      btnText = "Hubungi via WhatsApp";
+    } else if (club.joinType === "discord") {
+      iconClass = "fa-brands fa-discord";
+      btnText = "Join Discord";
+    } else if (club.joinType === "website") {
+      iconClass = iconClass;
+      btnText = "Buka Halaman Pendaftaran";
+    }
+
+    btn.innerHTML = `<i class="${iconClass} text-xl mr-2"></i><span>${btnText}</span>`;
 
     btn.onclick = () => {
-      window.open(
-        `https://wa.me/${club.whatsapp}?text=${encodeURIComponent(club.message)}`,
-        "_blank",
-      );
+      window.open(club.joinLink, "_blank");
     };
   } else {
     btn.style.display = "none";
   }
 
   document.getElementById("club-popup").classList.remove("hidden");
-
   document.getElementById("club-popup").classList.add("flex");
-
   playClickSound();
 };
 
