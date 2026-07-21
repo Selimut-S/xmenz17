@@ -16,7 +16,7 @@
     <meta name="author" content="XMenz" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="assets/icon2.png" />
+    <link rel="icon" type="image/jpeg" href="assets/img/icon2.png" />
     <!-- Fallback favicon in case local icon is missing -->
     <link
       rel="shortcut icon"
@@ -972,7 +972,8 @@
     </section>
 
     <!-- 5. TESTIMONI JOKI GALLERY -->
-    <section class="relative z-30 max-w-4xl mx-auto px-6 mb-16">
+    <!-- hapus class hidden untuk menampilkan galeri testimoni joki -->
+    <section class="relative z-30 max-w-4xl mx-auto px-6 mb-16 hidden">
       <div class="cyber-card p-6">
         <!-- Header -->
         <div class="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
@@ -1163,6 +1164,158 @@
             TUTUP DETAIL
           </button>
         </div>
+      </div>
+    </div>
+
+    <!-- Join club -->
+    <!-- ================= OPEN MEMBER CLUB ================= -->
+    <section class="py-20 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <span class="badge-tag badge-live mb-4">COMMUNITY HUB</span>
+
+          <h2 class="font-gaming text-3xl md:text-4xl neon-text-glow mb-4">
+            🏁 OPEN MEMBER CLUB
+          </h2>
+
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Gabung bersama komunitas Racing Master Indonesia. Cari teman mabar,
+            ikut event, berkembang bersama, dan nikmati komunitas yang aktif.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Empire GT -->
+          <div class="cyber-card p-7 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center mb-5">
+                <img
+                  src="assets/img/empiregt.png"
+                  alt=""
+                  size="50"
+                  class="w-10 h-10 rounded-full border border-[var(--color-primary)]/30 mr-3"
+                />
+                <h3 class="font-gaming text-2xl text-[var(--color-primary)]">
+                  Empire GT
+                </h3>
+
+                <span
+                  class="px-3 py-1 rounded-full text-xs border border-green-400/40 bg-green-400/10 text-green-400 ml-auto"
+                >
+                  OPEN MEMBER
+                </span>
+              </div>
+
+              <ul class="space-y-3 text-sm text-gray-300">
+                <li>✅ Change Name : <b>GT1“(name)</b></li>
+                <li>✅ No SARA</li>
+                <li>✅ Aktif</li>
+                <li>✅ Wajib Menjalankan Misi Klub</li>
+              </ul>
+            </div>
+
+            <div class="flex gap-3 mt-8">
+              <a
+                href="https://discord.gg/NSaSaUVBq"
+                target="_blank"
+                class="flex-1 cyber-btn text-center"
+              >
+                <i class="fa-brands fa-discord mr-2"></i>
+                Discord
+              </a>
+
+              <button
+                onclick="openClubPopup('empire')"
+                class="flex-1 cyber-btn"
+              >
+                <i class="fa-brands fa-whatsapp mr-2"></i>
+                Daftar
+              </button>
+            </div>
+          </div>
+
+          <!-- IRMC -->
+          <div class="cyber-card p-7 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center mb-5">
+                <img
+                  src="assets/img/irmc.png"
+                  alt=""
+                  size="50"
+                  class="w-10 h-10 rounded-full border border-[var(--color-primary)]/30 mr-3"
+                />
+                <h3 class="font-gaming text-2xl text-[var(--color-primary)]">
+                  IRMC
+                </h3>
+
+                <span
+                  class="px-3 py-1 rounded-full text-xs border border-green-400/40 bg-green-400/10 text-green-400 ml-auto"
+                >
+                  OPEN MEMBER
+                </span>
+              </div>
+
+              <ul class="space-y-3 text-sm text-gray-300">
+                <li>✅ Change Name : <b>IRMC〆(Name)</b></li>
+                <li>✅ NO Toxic</li>
+                <li>✅ NO 18++</li>
+                <li>✅ NO SARA</li>
+              </ul>
+            </div>
+
+            <div class="flex gap-3 mt-8">
+              <a
+                href="https://discord.gg/dfw73c689"
+                target="_blank"
+                class="flex-1 cyber-btn text-center"
+              >
+                <i class="fa-brands fa-discord mr-2"></i>
+                Discord
+              </a>
+
+              <button onclick="openClubPopup('irmc')" class="flex-1 cyber-btn">
+                <i class="fa-brands fa-whatsapp mr-2"></i>
+                Daftar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CLUB POPUP ================= -->
+
+    <div
+      id="club-popup"
+      class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-[99]"
+    >
+      <div class="cyber-card w-[95%] max-w-lg p-8 relative animate-fade">
+        <button
+          onclick="closeClubPopup()"
+          class="absolute top-4 right-5 text-xl hover:text-[var(--color-primary)]"
+        >
+          ✕
+        </button>
+        <img
+          id="club-logo"
+          src=""
+          alt="Club Logo"
+          class="w-20 h-20 rounded-full border border-[var(--color-primary)]/30 mb-4 mx-auto"
+        />
+        <h2
+          id="club-title"
+          class="font-gaming text-3xl text-center mb-6 text-[var(--color-primary)] neon-text-glow"
+        ></h2>
+
+        <div id="club-status" class="mb-5"></div>
+
+        <ul id="club-rules" class="space-y-3 text-gray-300 mb-8"></ul>
+
+        <button id="club-wa-btn" class="w-full cyber-btn">
+          <i class="fa-brands fa-whatsapp mr-2"></i>
+
+          Hubungi Admin
+        </button>
       </div>
     </div>
 
