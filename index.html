@@ -1,0 +1,1183 @@
+<!doctype html>
+<html lang="id" class="cursor-enabled">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO Optimization -->
+    <title>XMenz Gaming - Official Streamer Portal</title>
+    <meta
+      name="description"
+      content="Portal resmi XMenz Gaming. Streamer gaming dengan gaya elegan, berkarisma, dan humoris. Temukan jadwal streaming, spesifikasi gear, statistik, serta live guestbook interaktif di sini!"
+    />
+    <meta
+      name="keywords"
+      content="XMenz, XMenz Gaming, Gaming Streamer, Racing Master, Saweria XMenz, Streamer Indonesia"
+    />
+    <meta name="author" content="XMenz" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/icon2.png" />
+    <!-- Fallback favicon in case local icon is missing -->
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/512/3408/3408506.png"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              gaming: ["Orbitron", "sans-serif"],
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- FontAwesome for Premium Gaming Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom Premium Stylesheet -->
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+
+  <body class="text-white relative min-h-screen pb-16">
+    <!-- Custom Cyber Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+
+    <!-- Ambient Glow Background Blobs -->
+    <div class="ambient-light ambient-1"></div>
+    <div class="ambient-light ambient-2"></div>
+    <div class="ambient-light ambient-3"></div>
+
+    <!-- Pulsing Cyber Background Grid -->
+    <div class="cyber-grid"></div>
+
+    <!-- Background Floating Gaming Icons -->
+    <i
+      class="fa-solid fa-gamepad floating-icon text-3xl left-8 top-28"
+      style="animation-duration: 9s"
+    ></i>
+    <i
+      class="fa-solid fa-headset floating-icon text-4xl right-12 top-48"
+      style="animation-duration: 11s"
+    ></i>
+    <i
+      class="fa-solid fa-microphone floating-icon text-3xl left-1/4 top-96"
+      style="animation-duration: 13s"
+    ></i>
+    <i
+      class="fa-solid fa-trophy floating-icon text-2xl right-1/4 bottom-96"
+      style="animation-duration: 15s"
+    ></i>
+    <i
+      class="fa-solid fa-keyboard floating-icon text-3xl left-12 bottom-48"
+      style="animation-duration: 10s"
+    ></i>
+    <i
+      class="fa-solid fa-display floating-icon text-4xl right-16 bottom-24"
+      style="animation-duration: 12s"
+    ></i>
+
+    <!-- 1. HEADER SETTINGS & MUSIC PLAYER BAR -->
+    <header
+      class="w-full max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4 relative z-40"
+    >
+      <!-- Left: Logo/Home -->
+      <div class="flex items-center gap-2">
+        <div
+          class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-accent)] flex items-center justify-center neon-border-glow"
+        >
+          <i class="fa-solid fa-bolt text-xs text-white"></i>
+        </div>
+        <span
+          class="font-gaming font-black text-sm tracking-widest bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"
+          >XMENZ</span
+        >
+      </div>
+
+      <!-- Right: Settings & Synthesizer controls -->
+      <div
+        class="flex flex-wrap items-center gap-3 bg-white/5 backdrop-blur-md border border-white/5 rounded-2xl p-2 px-3 sm:px-4 text-xs"
+      >
+        <!-- Theme Dropdown -->
+        <div
+          class="flex items-center gap-1.5 border-r border-white/10 pr-3 mr-1"
+        >
+          <i class="fa-solid fa-palette text-[var(--color-primary)]"></i>
+          <select
+            id="theme-select"
+            class="bg-transparent text-white font-semibold focus:outline-none cursor-pointer"
+          >
+            <option value="red" class="bg-[#0b0e17] text-white">
+              Cyber Red
+            </option>
+            <option value="purple" class="bg-[#0b0e17] text-white">
+              Synthwave
+            </option>
+            <option value="emerald" class="bg-[#0b0e17] text-white">
+              Emerald
+            </option>
+            <option value="blue" class="bg-[#0b0e17] text-white">
+              Deep Blue
+            </option>
+          </select>
+        </div>
+
+        <!-- Custom Cursor Toggle -->
+        <div
+          class="hidden md:flex items-center gap-2 border-r border-white/10 pr-3 mr-1"
+        >
+          <span class="text-gray-400 font-medium">Cyber Cursor:</span>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              id="toggle-cursor"
+              class="sr-only peer"
+              checked
+            />
+            <div
+              class="w-8 h-4 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:height-3 after:w-3 after:transition-all peer-checked:bg-[var(--color-primary)]"
+            ></div>
+          </label>
+        </div>
+
+        <!-- Synthesized BGM Widget -->
+        <button
+          id="bgm-toggle"
+          class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition duration-200"
+        >
+          <i
+            class="fa-solid fa-music text-[var(--color-accent)] animate-pulse"
+          ></i>
+          <span
+            class="font-bold font-gaming text-[10px] bgm-status text-gray-300"
+            >SYNTH BGM: OFF</span
+          >
+          <!-- Sound Wave Visualizer Animation -->
+          <div id="bgm-visualizer" class="flex items-end h-3.5">
+            <div class="visualizer-bar"></div>
+            <div class="visualizer-bar"></div>
+            <div class="visualizer-bar"></div>
+            <div class="visualizer-bar"></div>
+            <div class="visualizer-bar"></div>
+          </div>
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section
+      class="relative z-30 max-w-4xl mx-auto px-6 pt-8 pb-12 text-center flex flex-col items-center"
+    >
+      <!-- Interactive Mascot Container -->
+      <div
+        class="relative mascot-container w-44 h-44 md:w-52 md:h-52 cursor-pointer mb-6"
+      >
+        <!-- Speech Bubble Quote (interactive) -->
+        <div id="mascot-bubble" class="speech-bubble">
+          <span id="mascot-bubble-text">Halo gamers! Klik aku!</span>
+        </div>
+
+        <!-- Mascot Image with Fallbacks -->
+        <div
+          class="w-full h-full rounded-full overflow-hidden border-2 border-white/10 relative bg-[#121624]"
+        >
+          <img
+            src="assets/img/xmenz.jpg"
+            id="mascot"
+            alt="XMenz Mascot"
+            class="mascot-img w-full h-full object-cover"
+            onerror="
+              this.onerror = null;
+              this.src =
+                'https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?w=400&auto=format&fit=crop&q=80';
+            "
+          />
+        </div>
+
+        <!-- Floating Glitch Badge -->
+        <div
+          class="absolute bottom-2 -right-2 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-[10px] font-gaming font-black px-3 py-1 rounded-md shadow-lg border border-white/15 uppercase tracking-wider neon-border-glow"
+        >
+          STREAMER
+        </div>
+      </div>
+
+      <!-- Gaming Slogan Titles -->
+      <div class="mb-4">
+        <h1
+          class="text-4xl md:text-6xl font-black font-gaming uppercase tracking-tight leading-none"
+          style="
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 40px rgba(var(--color-primary-rgb), 0.2);
+          "
+        >
+          XMenz Gaming
+        </h1>
+        <p
+          class="text-[10px] md:text-xs font-gaming font-bold tracking-[0.3em] text-[var(--color-accent)] neon-text-glow mt-2 uppercase"
+        >
+          Ride Hard • Laugh Harder • Mabar Always
+        </p>
+      </div>
+
+      <!-- Slogan Description -->
+      <p
+        class="text-gray-300 max-w-xl text-sm md:text-base leading-relaxed mb-10"
+      >
+        Streamer gaming dengan gaya elegan, berkarisma, dan humoris. Ayo dukung
+        perjalanan XMenz dengan penuh tawa, canda, dan kegembiraan
+        <span class="text-[var(--color-primary)] font-bold"
+          >Huahahahahaha :)</span
+        >
+      </p>
+
+      <!-- PRIMARY ACTION BUTTONS (Saweria & WhatsApp [Commented Out]) -->
+      <div class="flex justify-center w-full max-w-xs mb-14 mx-auto">
+        <!-- SAWERIA BUTTON -->
+        <div class="flex flex-col items-center w-full">
+          <p class="text-[11px] text-gray-400 mb-2.5">
+            <i class="fa-solid fa-tv text-yellow-400 mr-1"></i> Media share
+            video & pesan ke live stream:
+          </p>
+          <a
+            href="https://saweria.co/XMenz"
+            target="_blank"
+            class="animated-button mask-button w-full py-4 rounded-xl bg-[#121625] text-white flex items-center justify-center gap-3 text-sm font-bold font-gaming border border-yellow-500/30"
+            style="--border-color: #f6c344"
+          >
+            <span class="border-line"></span>
+            <span class="border-line"></span>
+            <span class="border-line"></span>
+            <span class="border-line"></span>
+            <span class="mask-bg"></span>
+            <img
+              src="https://saweria.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcapy_happy.603c7293.svg&w=384&q=75"
+              class="w-6 relative z-10"
+              alt="Saweria Logo"
+            />
+            <span class="relative z-10 text-yellow-400">SAWERIA DONASI</span>
+          </a>
+        </div>
+
+        <!-- WHATSAPP BUY ACCOUNT BUTTON (Komentar - Aktifkan kembali jika diperlukan)
+        <div class="flex flex-col items-center">
+          <p class="text-[11px] text-gray-400 mb-2.5">
+            <i class="fa-solid fa-car text-green-400 mr-1"></i> Beli akun Racing Master XMenz:
+          </p>
+          <a
+            href="https://wa.me/6288902341766?text=Hallo%20kak%20Merrie%20saya%20tertarik%20dengan%20akunnya%20kakak%20yang%20di%20promosikan%20di%20live%20nya%20kak%20XMenz%2C%20apakah%20masih%20ada%3F"
+            target="_blank"
+            class="animated-button mask-button w-full py-4 rounded-xl bg-[#121625] text-white flex items-center justify-center gap-3 text-sm font-bold font-gaming border border-green-500/30"
+            style="--border-color: #25D366"
+          >
+            <span class="border-line"></span>
+            <span class="border-line"></span>
+            <span class="border-line"></span>
+            <span class="border-line"></span>
+            <span class="mask-bg"></span>
+            <i class="fa-brands fa-whatsapp text-2xl text-[#25D366] relative z-10"></i>
+            <span class="relative z-10 text-[#25D366]">WHATSAPP ADMIN</span>
+          </a>
+        </div>
+        -->
+      </div>
+    </section>
+
+    <!-- 3. INTERACTIVE CARDS GRID -->
+    <main class="max-w-6xl mx-auto px-6 relative z-30 mb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- WIDGET 1: LIVE SCHEDULE -->
+        <section class="cyber-card p-6 flex flex-col h-full lg:col-span-2">
+          <div class="flex items-start gap-3 mb-5 border-b border-white/5 pb-4">
+            <div
+              class="w-7 h-7 rounded-md bg-[var(--color-primary)]/15 flex items-center justify-center border border-[var(--color-primary)]/30 mt-0.5 shrink-0"
+            >
+              <i
+                class="fa-solid fa-calendar-days text-xs text-[var(--color-primary)]"
+              ></i>
+            </div>
+            <div>
+              <h2 class="font-gaming font-bold text-base tracking-wider">
+                JADWAL LIVE STREAM
+              </h2>
+              <p class="text-[10px] text-gray-400 mt-1.5 leading-relaxed">
+                <i
+                  class="fa-solid fa-bell text-[var(--color-primary)] mr-1"
+                ></i>
+                Setiap hari saya rutin live
+                <strong>Racing Master di pagi hari</strong> (mulai
+                <strong>00:00 - 08:00 WIB</strong> s/d selesai). Weekend kadang
+                ada ekstra live Racing Master. Untuk malam hari hanya
+                kadang-kadang saja (jarang Racing Master, biasanya game lain).
+              </p>
+            </div>
+          </div>
+
+          <!-- Schedule Grid (Populated dynamically via script.js) -->
+          <div
+            id="schedule-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 flex-grow text-xs"
+          >
+            <!-- Loading Fallback -->
+            <div class="col-span-full py-8 text-center text-gray-500 italic">
+              Loading schedule engine...
+            </div>
+          </div>
+        </section>
+
+        <!-- WIDGET 2: STATS & ACHIEVEMENTS -->
+        <section class="cyber-card p-6 flex flex-col h-full">
+          <div
+            class="flex items-center gap-3 mb-5 border-b border-white/5 pb-3"
+          >
+            <div
+              class="w-7 h-7 rounded-md bg-[var(--color-accent)]/15 flex items-center justify-center border border-[var(--color-accent)]/30"
+            >
+              <i
+                class="fa-solid fa-chart-line text-xs text-[var(--color-accent)]"
+              ></i>
+            </div>
+            <h2 class="font-gaming font-bold text-base tracking-wider">
+              STATISTIK KANAL
+            </h2>
+          </div>
+
+          <div class="flex flex-col gap-4 flex-grow justify-around">
+            <!-- Youtube Stat -->
+            <div
+              class="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5"
+            >
+              <div class="flex items-center gap-3">
+                <i class="fa-brands fa-youtube text-2xl text-red-500"></i>
+                <div>
+                  <h3 class="text-[10px] text-gray-400 font-bold uppercase">
+                    YouTube Subscribers
+                  </h3>
+                  <p class="text-xs font-semibold text-gray-300">@XRMenz</p>
+                </div>
+              </div>
+              <span class="font-gaming font-black text-lg text-white"
+                >120K+</span
+              >
+            </div>
+
+            <!-- Racing Master Rank -->
+            <div
+              class="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5"
+            >
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-trophy text-2xl text-yellow-500"></i>
+                <div>
+                  <h3 class="text-[10px] text-gray-400 font-bold uppercase">
+                    Racing Master Rank
+                  </h3>
+                  <p class="text-xs font-semibold text-gray-300">
+                    Tier Divisi Utama
+                  </p>
+                </div>
+              </div>
+              <span
+                class="font-gaming font-black text-sm text-yellow-400 neon-text-glow"
+                >LEGEND</span
+              >
+            </div>
+
+            <!-- TikTok views -->
+            <div
+              class="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5"
+            >
+              <div class="flex items-center gap-3">
+                <i class="fa-brands fa-tiktok text-2xl text-cyan-400"></i>
+                <div>
+                  <h3 class="text-[10px] text-gray-400 font-bold uppercase">
+                    TikTok Views
+                  </h3>
+                  <p class="text-xs font-semibold text-gray-300">@xmenz17</p>
+                </div>
+              </div>
+              <span class="font-gaming font-black text-lg text-white"
+                >1.5M+</span
+              >
+            </div>
+
+            <!-- Discord community -->
+            <div
+              class="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5"
+            >
+              <div class="flex items-center gap-3">
+                <i class="fa-brands fa-discord text-2xl text-indigo-400"></i>
+                <div>
+                  <h3 class="text-[10px] text-gray-400 font-bold uppercase">
+                    Discord Community
+                  </h3>
+                  <p class="text-xs font-semibold text-gray-300">
+                    Menz Kingdom
+                  </p>
+                </div>
+              </div>
+              <span class="font-gaming font-black text-lg text-white">5K+</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- WIDGET 3: STREAMING GEAR SHOWCASE (Tabs) -->
+      <div class="grid grid-cols-1 gap-6 mt-6">
+        <section class="cyber-card p-6">
+          <div
+            class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-white/5 pb-4"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="w-7 h-7 rounded-md bg-[var(--color-secondary)]/15 flex items-center justify-center border border-[var(--color-secondary)]/30"
+              >
+                <i
+                  class="fa-solid fa-gamepad text-xs text-[var(--color-secondary)]"
+                ></i>
+              </div>
+              <h2 class="font-gaming font-bold text-base tracking-wider">
+                SPESIFIKASI SETUP & GEAR
+              </h2>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div
+              class="flex gap-1.5 bg-black/45 rounded-lg p-1 text-xs font-semibold"
+            >
+              <button
+                onclick="switchGearTab('pc', event)"
+                class="tab-btn px-3 py-1.5 rounded border border-[var(--color-primary)] text-white bg-[var(--color-primary)]/10 transition duration-200"
+              >
+                PC Specs
+              </button>
+              <button
+                onclick="switchGearTab('gear', event)"
+                class="tab-btn px-3 py-1.5 rounded border border-transparent text-gray-400 hover:text-white transition duration-200"
+              >
+                Streaming Gear
+              </button>
+              <button
+                onclick="switchGearTab('acc', event)"
+                class="tab-btn px-3 py-1.5 rounded border border-transparent text-gray-400 hover:text-white transition duration-200"
+              >
+                Accessories
+              </button>
+            </div>
+          </div>
+
+          <!-- TAB 1: PC SPECS -->
+          <div
+            id="gear-tab-pc"
+            class="tab-content grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs"
+          >
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i class="fa-solid fa-microchip text-xl text-cyan-400 mb-2"></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                Processor
+              </h3>
+              <p class="text-white font-medium mt-0.5">Ryzen 7 7800X3D</p>
+            </div>
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i class="fa-solid fa-gauge-high text-xl text-red-500 mb-2"></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                Graphics Card
+              </h3>
+              <p class="text-white font-medium mt-0.5">RTX 4407 Ti 16GB</p>
+            </div>
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i class="fa-solid fa-memory text-xl text-yellow-500 mb-2"></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                RAM Memory
+              </h3>
+              <p class="text-white font-medium mt-0.5">32GB DDR5 6000MHz</p>
+            </div>
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i class="fa-solid fa-hard-drive text-xl text-green-400 mb-2"></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                Storage
+              </h3>
+              <p class="text-white font-medium mt-0.5">2TB NVMe Gen4 SSD</p>
+            </div>
+          </div>
+
+          <!-- TAB 2: STREAMING GEAR -->
+          <div
+            id="gear-tab-gear"
+            class="tab-content hidden grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs"
+          >
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i class="fa-solid fa-camera text-xl text-indigo-400 mb-2"></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                Facecam Camera
+              </h3>
+              <p class="text-white font-medium mt-0.5">Logitech StreamCam 4K</p>
+            </div>
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i
+                class="fa-solid fa-microphone-lines text-xl text-pink-500 mb-2"
+              ></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                Microphone
+              </h3>
+              <p class="text-white font-medium mt-0.5">Shure MV7X XLR</p>
+            </div>
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i class="fa-solid fa-sliders text-xl text-emerald-400 mb-2"></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                Audio Interface
+              </h3>
+              <p class="text-white font-medium mt-0.5">
+                Focusrite Scarlett Solo
+              </p>
+            </div>
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i class="fa-solid fa-lightbulb text-xl text-yellow-400 mb-2"></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                Lighting
+              </h3>
+              <p class="text-white font-medium mt-0.5">
+                Elgato Key Light Air (x2)
+              </p>
+            </div>
+          </div>
+
+          <!-- TAB 3: ACCESSORIES -->
+          <div
+            id="gear-tab-acc"
+            class="tab-content hidden grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs"
+          >
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i class="fa-solid fa-headset text-xl text-purple-400 mb-2"></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                Headphone
+              </h3>
+              <p class="text-white font-medium mt-0.5">HyperX Cloud II Pro</p>
+            </div>
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i
+                class="fa-solid fa-computer-mouse text-xl text-cyan-400 mb-2"
+              ></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                Mouse
+              </h3>
+              <p class="text-white font-medium mt-0.5">
+                Razer Superlight Wireless
+              </p>
+            </div>
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i class="fa-solid fa-keyboard text-xl text-orange-400 mb-2"></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                Keyboard
+              </h3>
+              <p class="text-white font-medium mt-0.5">
+                Wooting 60HE Hall Effect
+              </p>
+            </div>
+            <div
+              class="p-3 bg-white/5 rounded-xl border border-white/5 text-center"
+            >
+              <i class="fa-solid fa-wheelchair text-xl text-red-500 mb-2"></i>
+              <h3 class="font-bold text-gray-400 text-[9px] uppercase">
+                Gamer Chair
+              </h3>
+              <p class="text-white font-medium mt-0.5">Secretlab TITAN Evo</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- JASA JOKI SECTION -->
+      <div class="grid grid-cols-1 gap-6 mt-6">
+        <section class="cyber-card p-6 relative overflow-hidden">
+          <!-- Background glow accent specifically for this section -->
+          <div
+            class="absolute -right-24 -bottom-24 w-48 h-48 bg-[var(--color-accent)] rounded-full filter blur-3xl opacity-10"
+          ></div>
+
+          <div
+            class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-white/5 pb-4"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="w-7 h-7 rounded-md bg-[var(--color-accent)]/15 flex items-center justify-center border border-[var(--color-accent)]/30"
+              >
+                <i
+                  class="fa-solid fa-gauge-high text-xs text-[var(--color-accent)]"
+                ></i>
+              </div>
+              <div>
+                <h2 class="font-gaming font-bold text-base tracking-wider">
+                  JASA JOKI AKUN RACING MASTER
+                </h2>
+                <p class="text-[10px] text-gray-400 mt-0.5">
+                  Selesaikan grind harian Anda dengan aman dan profesional oleh
+                  tim XMenz.
+                </p>
+              </div>
+            </div>
+
+            <span
+              class="badge-tag bg-green-500/20 text-green-400 border border-green-500/30 font-gaming text-[10px] py-1 px-3 rounded-full"
+            >
+              <i class="fa-solid fa-shield-halved mr-1 text-xs"></i> AMAN, CEPAT
+              & TERPERCAYA
+            </span>
+          </div>
+
+          <!-- Joki Packages Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <!-- Category 1: Paket Mingguan -->
+            <div
+              class="p-5 rounded-2xl bg-white/5 border border-white/5 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="flex items-center gap-2 mb-3.5 border-b border-white/5 pb-2"
+                >
+                  <i
+                    class="fa-solid fa-calendar-week text-[var(--color-primary)]"
+                  ></i>
+                  <h3
+                    class="font-gaming font-bold text-xs uppercase tracking-wider text-white"
+                  >
+                    PAKET MINGGUAN (RUTIN)
+                  </h3>
+                </div>
+
+                <div class="space-y-4">
+                  <!-- Item 1.1 -->
+                  <a
+                    href="https://wa.me/6288902341766?text=Hallo%20bang%20XMenz%2C%20saya%20tertarik%20dengan%20Jasa%20Joki%20Racing%20Master%20Paket%20Daily%20Only%20per%20Minggu%20(35k).%20Apakah%20slotnya%20masih%20tersedia%3F"
+                    target="_blank"
+                    class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl bg-black/30 border border-white/5 hover:border-green-500/40 hover:bg-green-500/5 hover:scale-[1.01] transition-all duration-300 group cursor-pointer"
+                  >
+                    <div>
+                      <p
+                        class="text-xs font-bold text-white group-hover:text-green-400 transition flex items-center gap-1.5"
+                      >
+                        Daily Only (Per Minggu)
+                        <i
+                          class="fa-brands fa-whatsapp text-green-500 text-xs opacity-0 group-hover:opacity-100 transition duration-300"
+                        ></i>
+                      </p>
+                      <p class="text-[10px] text-gray-400 mt-0.5">
+                        Termasuk weekly & klaim bonus 500 Diamond
+                      </p>
+                    </div>
+                    <span
+                      class="font-gaming font-black text-xs text-[var(--color-accent)] shrink-0 bg-[var(--color-accent)]/10 px-3 py-1 rounded border border-[var(--color-accent)]/20 group-hover:border-green-500/30 group-hover:bg-green-500/10 group-hover:text-green-400 transition"
+                      >35k / mgg</span
+                    >
+                  </a>
+
+                  <!-- Item 1.2 -->
+                  <a
+                    href="https://wa.me/6288902341766?text=Hallo%20bang%20XMenz%2C%20saya%20tertarik%20dengan%20Jasa%20Joki%20Racing%20Master%20Paket%20Daily%20Push%201%20Jam%20per%20Minggu%20(55k)%20yang%20sudah%20termasuk%20CRW%2C%20Duel%2C%20dan%20claim%20event.%20Apakah%20slotnya%20masih%20tersedia%3F"
+                    target="_blank"
+                    class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl bg-black/30 border border-white/5 hover:border-green-500/40 hover:bg-green-500/5 hover:scale-[1.01] transition-all duration-300 group cursor-pointer"
+                  >
+                    <div>
+                      <p
+                        class="text-xs font-bold text-white group-hover:text-green-400 transition flex items-center gap-1.5"
+                      >
+                        Daily Push 1 Jam (Per Minggu)
+                        <i
+                          class="fa-brands fa-whatsapp text-green-500 text-xs opacity-0 group-hover:opacity-100 transition duration-300"
+                        ></i>
+                      </p>
+                      <p class="text-[10px] text-gray-400 mt-0.5">
+                        Termasuk CRW, Duel, dan claim event (jika diperlukan)
+                      </p>
+                    </div>
+                    <span
+                      class="font-gaming font-black text-xs text-[var(--color-accent)] shrink-0 bg-[var(--color-accent)]/10 px-3 py-1 rounded border border-[var(--color-accent)]/20 group-hover:border-green-500/30 group-hover:bg-green-500/10 group-hover:text-green-400 transition"
+                      >55k / mgg</span
+                    >
+                  </a>
+                </div>
+              </div>
+
+              <div class="text-[9.5px] text-gray-500 italic mt-4">
+                * Paket mingguan diproses rutin setiap hari selama masa sewa
+                aktif.
+              </div>
+            </div>
+
+            <!-- Category 2: Paket Eceran -->
+            <div
+              class="p-5 rounded-2xl bg-white/5 border border-white/5 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="flex items-center gap-2 mb-3.5 border-b border-white/5 pb-2"
+                >
+                  <i class="fa-solid fa-clock text-[var(--color-primary)]"></i>
+                  <h3
+                    class="font-gaming font-bold text-xs uppercase tracking-wider text-white"
+                  >
+                    PAKET DAILY PUSH (ECERAN)
+                  </h3>
+                </div>
+
+                <div class="grid grid-cols-1 gap-2.5">
+                  <!-- Item 2.1 -->
+                  <a
+                    href="https://wa.me/6288902341766?text=Hallo%20bang%20XMenz%2C%20saya%20tertarik%20dengan%20Jasa%20Joki%20Racing%20Master%20Paket%20Daily%20Push%20Eceran%201%20Jam%20(15k).%20Apakah%20slotnya%20bisa%20dikerjakan%20hari%20ini%3F"
+                    target="_blank"
+                    class="flex items-center justify-between p-3 rounded-xl bg-black/30 border border-white/5 hover:border-green-500/40 hover:bg-green-500/5 hover:scale-[1.01] transition-all duration-300 group cursor-pointer"
+                  >
+                    <div>
+                      <p
+                        class="text-xs font-bold text-white group-hover:text-green-400 transition flex items-center gap-1.5"
+                      >
+                        Daily Push (Hanya 1 Jam)
+                        <i
+                          class="fa-brands fa-whatsapp text-green-500 text-xs opacity-0 group-hover:opacity-100 transition duration-300"
+                        ></i>
+                      </p>
+                      <p class="text-[10px] text-gray-400 mt-0.5">
+                        Satu kali pengerjaan instan
+                      </p>
+                    </div>
+                    <span
+                      class="font-gaming font-black text-xs text-white shrink-0 bg-white/10 px-3 py-1 rounded border border-white/10 group-hover:border-green-500/30 group-hover:bg-green-500/10 group-hover:text-green-400 transition"
+                      >15k</span
+                    >
+                  </a>
+
+                  <!-- Item 2.2 -->
+                  <a
+                    href="https://wa.me/6288902341766?text=Hallo%20bang%20XMenz%2C%20saya%20tertarik%20dengan%20Jasa%20Joki%20Racing%20Master%20Paket%20Daily%20Push%20Eceran%201%20Jam%2030%20Menit%20(20k).%20Apakah%20bisa%20dibantu%20joki%20hari%20ini%3F"
+                    target="_blank"
+                    class="flex items-center justify-between p-3 rounded-xl bg-black/30 border border-white/5 hover:border-green-500/40 hover:bg-green-500/5 hover:scale-[1.01] transition-all duration-300 group cursor-pointer"
+                  >
+                    <div>
+                      <p
+                        class="text-xs font-bold text-white group-hover:text-green-400 transition flex items-center gap-1.5"
+                      >
+                        Daily Push (1 Jam 30 Menit)
+                        <i
+                          class="fa-brands fa-whatsapp text-green-500 text-xs opacity-0 group-hover:opacity-100 transition duration-300"
+                        ></i>
+                      </p>
+                      <p class="text-[10px] text-gray-400 mt-0.5">
+                        Pengerjaan lebih mendalam
+                      </p>
+                    </div>
+                    <span
+                      class="font-gaming font-black text-xs text-white shrink-0 bg-white/10 px-3 py-1 rounded border border-white/10 group-hover:border-green-500/30 group-hover:bg-green-500/10 group-hover:text-green-400 transition"
+                      >20k</span
+                    >
+                  </a>
+
+                  <!-- Item 2.3 -->
+                  <a
+                    href="https://wa.me/6288902341766?text=Hallo%20bang%20XMenz%2C%20saya%20tertarik%20dengan%20Jasa%20Joki%20Racing%20Master%20Paket%20Daily%20Push%20Eceran%202%20Jam%20(25k).%20Apakah%20slot%20joki%20hari%20ini%20masih%20kosong%3F"
+                    target="_blank"
+                    class="flex items-center justify-between p-3 rounded-xl bg-black/30 border border-white/5 hover:border-green-500/40 hover:bg-green-500/5 hover:scale-[1.01] transition-all duration-300 group cursor-pointer"
+                  >
+                    <div>
+                      <p
+                        class="text-xs font-bold text-white group-hover:text-green-400 transition flex items-center gap-1.5"
+                      >
+                        Daily Push (Hanya 2 Jam)
+                        <i
+                          class="fa-brands fa-whatsapp text-green-500 text-xs opacity-0 group-hover:opacity-100 transition duration-300"
+                        ></i>
+                      </p>
+                      <p class="text-[10px] text-gray-400 mt-0.5">
+                        Grind optimal poin track & event
+                      </p>
+                    </div>
+                    <span
+                      class="font-gaming font-black text-xs text-white shrink-0 bg-white/10 px-3 py-1 rounded border border-white/10 group-hover:border-green-500/30 group-hover:bg-green-500/10 group-hover:text-green-400 transition"
+                      >25k</span
+                    >
+                  </a>
+                </div>
+              </div>
+
+              <div class="text-[9.5px] text-gray-500 italic mt-4">
+                * Paket eceran berlaku untuk sekali pengerjaan di hari
+                pemesanan.
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Joki CTA Button -->
+          <div
+            class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl bg-green-500/5 border border-green-500/20 text-xs"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-full bg-green-500/10 flex items-center justify-center text-green-400 shrink-0"
+              >
+                <i class="fa-solid fa-headset text-base"></i>
+              </div>
+              <div>
+                <p class="font-bold text-white leading-normal">
+                  Tertarik memesan Jasa Joki Racing Master?
+                </p>
+                <p class="text-gray-400 text-[10px] mt-0.5">
+                  Konsultasikan kebutuhan akun Anda dan pesan langsung melalui
+                  WhatsApp Admin.
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="https://wa.me/6288902341766?text=Hallo%20Kak%20XMenz%2C%20saya%20tertarik%20dengan%20Jasa%20Joki%20Racing%20Master%20kak%20XMenz.%20Bisa%20tolong%20dijelaskan%20prosedurnya%3F"
+              target="_blank"
+              class="animated-button mask-button py-2.5 px-6 rounded-lg bg-green-600/20 hover:bg-green-600 text-green-400 hover:text-white font-gaming font-extrabold tracking-wider transition border border-green-500/30 flex items-center gap-2 shrink-0"
+              style="--border-color: #25d366"
+            >
+              <span class="border-line"></span>
+              <span class="border-line"></span>
+              <span class="border-line"></span>
+              <span class="border-line"></span>
+              <span class="mask-bg"></span>
+              <i class="fa-brands fa-whatsapp text-sm relative z-10"></i>
+              <span class="relative z-10">PESAN JOKI SEKARANG</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- 4. REFINED SOCIAL LINKS GRID -->
+    <section class="relative z-30 max-w-4xl mx-auto px-6 mb-16 text-center">
+      <div class="flex flex-col items-center mb-8">
+        <h2
+          class="font-gaming font-extrabold text-lg sm:text-xl tracking-wider text-white"
+        >
+          IKUTI MEDIA SOSIAL XMENZ
+        </h2>
+        <div
+          class="w-20 h-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] mt-2 rounded-full"
+        ></div>
+        <p class="text-xs text-gray-400 mt-2 max-w-sm">
+          Dapatkan update terkini, jadwal live, cuplikan video lucu, dan konten
+          seru lainnya!
+        </p>
+      </div>
+
+      <!-- Social Grid (4 columns) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- YouTube -->
+        <a
+          href="https://www.youtube.com/@XRMenz"
+          target="_blank"
+          class="social-btn flex flex-col items-center p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-red-600/60 hover:bg-red-600/10 transition-all duration-300 group"
+        >
+          <div
+            class="w-12 h-12 rounded-xl bg-red-600/15 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-red-600/35 transition duration-300"
+          >
+            <i class="fa-brands fa-youtube text-2xl text-red-500"></i>
+          </div>
+          <span
+            class="font-gaming font-bold text-sm text-white group-hover:text-red-500 transition"
+            >YOUTUBE</span
+          >
+          <span class="text-[9px] text-gray-500 mt-1">@XRMenz</span>
+        </a>
+
+        <!-- TikTok -->
+        <a
+          href="https://www.tiktok.com/@xmenz17?_r=1&_t=ZS-932NOQFrd3Z"
+          target="_blank"
+          class="social-btn flex flex-col items-center p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-cyan-400/60 hover:bg-cyan-400/10 transition-all duration-300 group"
+        >
+          <div
+            class="w-12 h-12 rounded-xl bg-cyan-400/15 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-cyan-400/35 transition duration-300"
+          >
+            <i class="fa-brands fa-tiktok text-2xl text-cyan-400"></i>
+          </div>
+          <span
+            class="font-gaming font-bold text-sm text-white group-hover:text-cyan-400 transition"
+            >TIKTOK</span
+          >
+          <span class="text-[9px] text-gray-500 mt-1">@xmenz17</span>
+        </a>
+
+        <!-- Instagram (Popup Modal trigger) -->
+        <button
+          onclick="showInfoPopup(event)"
+          class="social-btn flex flex-col items-center p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-pink-500/60 hover:bg-pink-500/10 transition-all duration-300 group text-center w-full"
+        >
+          <div
+            class="w-12 h-12 rounded-xl bg-pink-500/15 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-pink-500/35 transition duration-300"
+          >
+            <i class="fa-brands fa-instagram text-2xl text-pink-400"></i>
+          </div>
+          <span
+            class="font-gaming font-bold text-sm text-white group-hover:text-pink-400 transition"
+            >INSTAGRAM</span
+          >
+          <span class="text-[9px] text-gray-500 mt-1">Belum Tersedia</span>
+        </button>
+
+        <!-- Facebook -->
+        <a
+          href="https://www.facebook.com/profile.php?id=61590087632041&sk=reels_tab"
+          target="_blank"
+          class="social-btn flex flex-col items-center p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-600/60 hover:bg-blue-600/10 transition-all duration-300 group"
+        >
+          <div
+            class="w-12 h-12 rounded-xl bg-blue-600/15 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-blue-600/35 transition duration-300"
+          >
+            <i class="fa-brands fa-facebook-f text-2xl text-blue-500"></i>
+          </div>
+          <span
+            class="font-gaming font-bold text-sm text-white group-hover:text-blue-500 transition"
+            >FACEBOOK</span
+          >
+          <span class="text-[9px] text-gray-500 mt-1">XMenz Gaming</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. TESTIMONI JOKI GALLERY -->
+    <section class="relative z-30 max-w-4xl mx-auto px-6 mb-16">
+      <div class="cyber-card p-6">
+        <!-- Header -->
+        <div class="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
+          <div
+            class="w-7 h-7 rounded-md bg-green-500/15 flex items-center justify-center border border-green-500/30"
+          >
+            <i class="fa-solid fa-images text-xs text-green-400"></i>
+          </div>
+          <div>
+            <h2 class="font-gaming font-bold text-base tracking-wider">
+              GALERI TESTIMONI JOKI
+            </h2>
+            <p class="text-[10px] text-gray-400 mt-0.5">
+              Bukti kepuasan para gamers yang telah mempercayakan akunnya kepada
+              tim XMenz. Klik gambar untuk memperbesar!
+            </p>
+          </div>
+        </div>
+
+        <!-- Image Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <!-- Testi 1 -->
+          <div
+            class="group relative rounded-xl overflow-hidden border border-white/5 bg-black/40 aspect-[4/3] cursor-zoom-in shadow-md hover:border-green-500/40 transition duration-300"
+            onclick="openLightbox('assets/img/testimonial/testi1.png', this)"
+          >
+            <img
+              src="assets/img/testimonial/testi1.png"
+              alt="Testimoni Joki 1"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              onerror="
+                this.onerror = null;
+                this.src =
+                  'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&auto=format&fit=crop&q=80';
+              "
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3"
+            >
+              <span class="text-[10px] font-gaming font-bold text-green-400"
+                ><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>
+                TESTIMONI 1</span
+              >
+            </div>
+          </div>
+
+          <!-- Testi 2 -->
+          <div
+            class="group relative rounded-xl overflow-hidden border border-white/5 bg-black/40 aspect-[4/3] cursor-zoom-in shadow-md hover:border-green-500/40 transition duration-300"
+            onclick="openLightbox('assets/testi2.jpg', this)"
+          >
+            <img
+              src="assets/testi2.jpg"
+              alt="Testimoni Joki 2"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              onerror="
+                this.onerror = null;
+                this.src =
+                  'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=500&auto=format&fit=crop&q=80';
+              "
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3"
+            >
+              <span class="text-[10px] font-gaming font-bold text-green-400"
+                ><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>
+                TESTIMONI 2</span
+              >
+            </div>
+          </div>
+
+          <!-- Testi 3 -->
+          <div
+            class="group relative rounded-xl overflow-hidden border border-white/5 bg-black/40 aspect-[4/3] cursor-zoom-in shadow-md hover:border-green-500/40 transition duration-300"
+            onclick="openLightbox('assets/testi3.jpg', this)"
+          >
+            <img
+              src="assets/testi3.jpg"
+              alt="Testimoni Joki 3"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              onerror="
+                this.onerror = null;
+                this.src =
+                  'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&auto=format&fit=crop&q=80';
+              "
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3"
+            >
+              <span class="text-[10px] font-gaming font-bold text-green-400"
+                ><i class="fa-solid fa-magnifying-glass-plus mr-1"></i>
+                TESTIMONI 3</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL FOR TESTIMONIALS -->
+    <div
+      id="lightbox"
+      class="fixed inset-0 bg-black/90 backdrop-blur-md hidden flex items-center justify-center z-50 p-4 transition-all duration-300 cursor-zoom-out"
+      onclick="closeLightbox()"
+    >
+      <button
+        class="absolute top-4 right-4 text-white text-3xl hover:text-red-500 transition duration-200"
+        onclick="closeLightbox()"
+      >
+        &times;
+      </button>
+      <img
+        id="lightbox-img"
+        class="max-w-full max-h-[85vh] rounded-xl border border-white/10 shadow-2xl object-contain"
+        src=""
+        alt="Zoom Testimonial"
+      />
+    </div>
+
+    <!-- 6. MODERN POPUP MODAL -->
+    <div
+      id="popup"
+      class="fixed inset-0 bg-black/60 backdrop-blur-md hidden flex items-center justify-center z-50 p-4 transition-all duration-300"
+    >
+      <!-- Modal Box -->
+      <div
+        class="bg-[#0f1320]/95 max-w-md w-full rounded-2xl border border-red-500/30 p-6 sm:p-8 text-2xl relative overflow-hidden"
+        style="box-shadow: 0 0 35px rgba(239, 68, 68, 0.2)"
+      >
+        <!-- Futuristic Accent Light inside modal -->
+        <div
+          class="absolute -top-16 -left-16 w-32 h-32 bg-red-600 rounded-full filter blur-3xl opacity-30"
+        ></div>
+        <!-- Header Icon -->
+        <div class="flex flex-col items-center text-center relative z-10">
+          <div
+            class="w-14 h-14 rounded-full bg-red-600/10 border border-red-600/30 flex items-center justify-center mb-4 text-red-500 neon-border-glow animate-pulse"
+          >
+            <i class="fa-solid fa-circle-exclamation text-2xl"></i>
+          </div>
+
+          <h2
+            class="text-xl sm:text-2xl font-gaming font-black text-red-500 uppercase tracking-wider mb-2"
+          >
+            Pemberitahuan
+          </h2>
+
+          <div class="w-12 h-0.5 bg-red-600/35 mb-4"></div>
+        </div>
+
+        <!-- Contents -->
+        <div
+          class="text-center text-gray-300 text-xs sm:text-sm leading-relaxed relative z-10 flex flex-col gap-3"
+        >
+          <p class="font-bold">
+            Mohon maaf, saat ini
+            <span class="text-[var(--color-primary)]">XMenz</span> belum
+            mempunyai akun Instagram resmi.
+          </p>
+          <p class="text-gray-400">
+            Waspada terhadap akun palsu atau penipuan yang mengatasnamakan
+            XMenz. Akun resmi media sosial kami hanya tercantum di landing page
+            ini.
+          </p>
+          <p class="text-[10px] text-gray-500 italic mt-1">
+            Ke depannya, XMenz akan segera hadir dan aktif di Instagram serta
+            platform lainnya. Stay tuned! ✌️😁
+          </p>
+        </div>
+
+        <!-- CTAs -->
+        <div class="mt-6 flex flex-col gap-2.5 relative z-10">
+          <!-- Alt YouTube CTA -->
+          <a
+            href="https://www.youtube.com/@XRMenz"
+            target="_blank"
+            onclick="closePopup()"
+            class="w-full py-3 rounded-xl bg-red-600 hover:bg-red-700 text-center font-gaming font-bold text-xs tracking-wider transition duration-200 border border-white/10 shadow-lg shadow-red-600/20"
+          >
+            KUNJUNGI YOUTUBE SEBAGAI GANTINYA
+          </a>
+
+          <!-- Close Button -->
+          <button
+            onclick="closePopup()"
+            class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 text-center font-bold text-xs text-gray-400 hover:text-white transition duration-200 border border-white/5"
+          >
+            TUTUP DETAIL
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. FOOTER SECTION -->
+    <footer
+      class="w-full text-center py-8 relative z-30 border-t border-white/5 text-[10px] text-gray-500 font-gaming uppercase tracking-widest"
+    >
+      <p>&copy; 2026 XMenz Gaming. All Rights Reserved.</p>
+      <p class="text-[8px] text-gray-600 mt-1">
+        Made with <i class="fa-solid fa-heart text-red-600 mx-0.5"></i> for the
+        gaming community.
+      </p>
+    </footer>
+
+    <!-- Javascript Core Engine -->
+    <script src="assets/script.js"></script>
+  </body>
+</html>
